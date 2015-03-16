@@ -1,0 +1,69 @@
+doctype
+html( lang="en" )
+  head
+    title Contact List
+    meta( charset='utf-8' )
+    meta( http-equiv='X-UA-Compatible', content='IE=edge' )
+    meta( name='viewport', content='width=device-width, initial-scale=1.0' )
+    
+    
+    //- Bootswatch Theme
+    link(href="http://maxcdn.bootstrapcdn.com/bootswatch/3.3.0/flatly/bootstrap.min.css", rel="stylesheet")
+
+    
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js')
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js')
+body
+    block content
+      div.header
+        h1.text-center Edit Contact
+      form.form-horizontal(role="form", action="/editcontact/#{contact._id}", method="post")
+        div.col-sm-6
+          label.control-label(for="firstname") First Name
+          input.form-control(type="text" name="firstname" id="firstName" value="#{contact.name.first}")
+
+        div.col-sm-6
+          label.control-label(for="lastname") Last Name
+          input.form-control(type="text" name="lastname" id="lastName" value="#{contact.name.last}")
+        
+        div.col-sm-6
+          label.control-label(for="company") Company
+          input.form-control(type="text" name="company" id="company" value="#{contact.company}")
+        
+        div.col-sm-6
+          label.control-label(for="title") Title
+          input.form-control(type="text" name="title" id="title" value="#{contact.title}")
+        
+        div.col-sm-6
+          label.control-label(for="email") Email
+          input.form-control(type="text" name="email" id="email" value="#{contact.email}")
+
+        div.col-sm-6
+          label.control-label(for="number") Phone Number
+          input.form-control(type="text" name="number" id="number" value="#{contact.number}")
+        
+        div.col-sm-6
+          label.control-label(for="date") Date
+          input.form-control(type="text" name="date" id="date" value="#{contact.date}")
+        
+        div.col-sm-6
+          label.control-label(for="wheremet") WhereMet
+          select.form-control(type="text" name="wheremet" id="whereMet")
+            option(value="#{contact.wheremet}")= contact.wheremet
+            option(value="Meetup.com") Meetup.com
+            option(value="Penny Arcade Expo") Penny Arcade Expo
+            option(value="Shop.org Conference") Shop.org Conference
+            option(value="Other") Other
+        
+        div.col-sm-12
+          label.control-label(for="notes") Notes
+          input.form-control(type="text" name="notes" id="notes" value="#{contact.notes}")
+        
+        div.row
+          div.col-sm-4
+            button.btn.btn-primary.btn-lg(type="submit" name="button" value="no") No
+          div.col-sm-4.col-sm-offset-4
+            button.btn.btn-primary.btn-lg(type="submit" name="button" value="yes") Yes
+           
+        

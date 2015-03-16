@@ -1,0 +1,56 @@
+extends layout
+
+block content
+  div.header
+    h1.text-center Add Contact
+  -if(errors)
+    p.text-danger= message
+    ul
+      each error in errors
+        li= error.msg
+  form.form-horizontal(name="newcontact", role="form", action="/addcontact", method="post")
+
+                    div.col-sm-6
+                      label.control-label(for="firstname") First Name:
+                      input.form-control(type='text' id="first" name='firstname')
+                    
+                    div.col-sm-6
+                      label.control-label(for="lastname") Last Name:
+                      input.form-control(type='text' name='lastname')
+                      
+                    div.col-sm-6
+                      label.control-label(for="email") Email:
+                      input.form-control(type='text' name='email')
+                    
+                    div.col-sm-6
+                      label.control-label(for="company") Company:
+                      input.form-control(type='text' name='company')
+                    
+                    div.col-sm-6
+                      label.control-label(for="title") Title:
+                      input.form-control(type='text' name='title')
+                    
+                    div.col-sm-6
+                      label.control-label(for="number") Phone Number:
+                      input.form-control(type='text' name='number')
+                     
+                    div.col-sm-6
+                      label.control-label(for="wheremet") Where Met:
+                      select.form-control(class="inputFormat" name="wheremet" id="wheremet")
+                        option(value="none") Where did you meet?
+                        option(value="meetUp") Meetup.com
+                        option(value="pax") Penny Arcade Expo
+                        option(value="shoporg") Shop.org Conference
+                        option(value="other") Other
+                        
+                    div.col-sm-6
+                      label.control-label(for="date") Date Met:
+                      input.form-control(class="inputFormat" type="text" name="date" id="date")
+                   
+                    div.col-sm-12
+                      label.form-label(for="notes") Notes:
+                      textarea.form-control(class="inputFormat" name="notes" id="notes" maxlength="255")
+                    
+                    div.row
+                      div.col-sm-4
+                      input.btn.btn-primary.btn-lg(type='submit' name='submit')

@@ -1,0 +1,77 @@
+doctype
+html( lang="en" )
+  head
+    title Contact List
+    meta( charset='utf-8' )
+    meta( http-equiv='X-UA-Compatible', content='IE=edge' )
+    meta( name='viewport', content='width=device-width, initial-scale=1.0' )
+    link(rel='stylesheet', href='//cdn.kendostatic.com/2013.3.1119/styles/kendo.common.min.css')
+    link(rel='stylesheet', href='//cdn.kendostatic.com/2013.3.1119/styles/kendo.bootstrap.min.css')
+    //- Bootswatch Theme
+    link(href="http://maxcdn.bootstrapcdn.com/bootswatch/3.3.0/flatly/bootstrap.min.css", rel="stylesheet")
+
+    link(href="https://cdn.datatables.net/1.10.4/css/jquery.dataTables.css", rel="stylesheet")
+    link(rel='stylesheet', href='/stylesheets/style.css')
+        
+ 
+ 
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js')
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js')
+
+        
+        
+
+  body
+    block content
+      div.header
+        h1.text-center Contact List
+      ul.nav.nav-pills
+        li.active
+          a(href="/newcontact") Add Contact
+      
+      hr
+      
+      div
+        table#example.display
+          thead
+            tr:  th Edit
+                 th Delete
+                 th First
+                 th Last
+                 th Company
+                 th Title
+                 th Email
+                 th Phone Number
+                 th Date
+                 th Where Met
+                 th Notes 
+          tbody
+            each contact in contactlist
+              tr
+                td 
+                  a(href='/edit/#{contact._id}')
+                    span.glyphicon.glyphicon-edit(aria-hidden='true')
+                td
+                  a(href='/delete/#{contact._id}')
+                    span.glyphicon.glyphicon-remove(aria-hidden='true')
+                td #{contact.name.first}
+                td #{contact.name.last}
+                td #{contact.company}
+                td #{contact.title}
+                td #{contact.email}
+                td #{contact.number}
+                td #{contact.date}
+                td #{contact.wheremet}
+                td #{contact.notes}
+
+    script(src="//code.jquery.com/jquery-1.11.1.min.js")
+    script(src="//cdn.datatables.net/1.10.4/js/jquery.dataTables.min.js")
+    script. 
+        $(document).ready(function(){
+            $('#example').DataTable({
+              "order": [[3, "desc"]]
+            });
+        });
+  
+
+

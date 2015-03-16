@@ -1,0 +1,15 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+div.header{
+    margin-bottom: 1%;
+    border: double;
+    padding: 1%;
+   background-color: gray;
+}
+
+a {
+  color: #00B7FF;
+}
